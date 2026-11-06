@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canteen Staff Dashboard — SCOTS</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260825-9">
+</head>
+<body data-root="../" data-role="staff">
+  <div id="navbar"></div>
+  <div id="ops-nav"></div>
+
+  <main class="container">
+    <div class="page-head page-head-row">
+      <div class="page-head-main">
+        <span class="eyebrow">Kitchen Console</span>
+        <h1>Live order queue</h1>
+        <p>Move each order forward as it's prepared. Status only moves forward — Received → Preparing → Ready → Collected.</p>
+      </div>
+      <div class="page-queue-card" aria-live="polite" aria-label="Live kitchen queue wait time">
+        <span class="page-queue-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg></span>
+        <span class="page-queue-copy"><strong>Live Queue</strong><small>Kitchen wait time</small></span>
+        <strong class="page-queue-value" data-live-queue-wait>—</strong>
+      </div>
+    </div>
+
+    <div class="stat-grid" id="staff-stats"></div>
+    <div id="staff-queue" class="mb-24"></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/demo-data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/slots.js"></script>
+  <script src="../js/queue.js"></script>
+  <script src="../js/app.js?v=20260825-8"></script>
+  <script src="../js/notifications.js?v=20260825-3"></script>
+  <script src="../js/realtime.js?v=20260825-3"></script>
+  <script>
+    initPage("dash");
+    Admin_opsNavLite();
+    function Admin_opsNavLite() {
+      const mount = document.getElementById("ops-nav");
+      mount.innerHTML = `
+        <div class="ops-nav"><div class="container ops-nav-inner">
+          <a href="dashboard.html" class="active">Live Queue</a>
+          <a href="../token-display.html">Token Display</a>
+          <span class="ops-role">Canteen Staff Console</span>
+        </div></div>`;
+    }
+  </script>
+  <script src="../js/staff.js?v=20260825-1"></script>
+</body>
+</html>

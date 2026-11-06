@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — SCOTS</title>
+  <link rel="icon" type="image/png" href="assets/icons/scots-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="css/responsive.css?v=20260825-9">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main class="container">
+    <div class="page-head page-head-row">
+      <div class="page-head-main">
+        <span class="eyebrow">Account</span>
+        <h1>My profile</h1>
+      </div>
+      <div class="page-queue-card" aria-live="polite" aria-label="Live kitchen queue wait time">
+        <span class="page-queue-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg></span>
+        <span class="page-queue-copy"><strong>Live Queue</strong><small>Kitchen wait time</small></span>
+        <strong class="page-queue-value" data-live-queue-wait>—</strong>
+      </div>
+    </div>
+
+    <div style="max-width:640px" class="mb-24">
+      <div id="profile-warning"></div>
+      <div class="profile-card" id="profile-card"></div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slots.js"></script>
+  <script src="js/queue.js"></script>
+  <script src="js/app.js?v=20260825-8"></script>
+  <script src="js/notifications.js?v=20260825-2"></script>
+  <script src="js/realtime.js?v=20260825-1"></script>
+  <script>
+    initPage("profile");
+    (function () {
+      const user = Auth.guard("student");
+      if (!user) return;
+      const initials = user.name.split(" ").map(w => w[0]).slice(0, 2).join("").toUpperCase();
+      document.getElementById("profile-card").innerHTML = `
+        <div class="profile-head">
+          <div class="avatar">${U.esc(initials)}</div>
+          <div>
+            <h2 style="font-size:1.3rem">${U.esc(user.name)}</h2>
+            <p class="text-muted" style="font-size:.88rem">${U.esc(user.enrollment)} · Customer</p>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="detail-cell"><small>Email</small><strong>${U.esc(user.email)}</strong></div>
+          <div class="detail-cell"><small>Phone</small><strong>${U.esc(user.phone)}</strong></div>
+          <div class="detail-cell"><small>Account Status</small><strong>${user.status === "suspended" ? "⛔ Suspended" : "✓ Active"}</strong></div>
+          <div class="detail-cell"><small>No-show Count</small><strong>${user.noShows || 0}</strong></div>
+          <div class="detail-cell" style="grid-column:1/-1"><small>Payment Mode</small><strong>${user.paymentMode === "mandatory_upi" ? "UPI only (restricted)" : "Normal — UPI or counter"}</strong></div>
+        </div>`;
+      const warn = document.getElementById("profile-warning");
+      if (user.status === "suspended") {
+        warn.innerHTML = `<div class="notice error" role="alert"><span>⛔</span><div><strong>Your account has been temporarily suspended due to repeated pickup no-shows.</strong>Visit <a href="help.html#appeal" style="text-decoration:underline">Help → Appeal</a> to contact the canteen office.</div></div>`;
+      } else if (user.paymentMode === "mandatory_upi") {
+        warn.innerHTML = `<div class="notice warn" role="status"><span>⚠️</span><div><strong>Payment restriction active.</strong>After 2 no-shows, UPI payment is mandatory. You can appeal in <a href="help.html#appeal" style="text-decoration:underline">Help</a> to have the restriction removed.</div></div>`;
+      }
+    })();
+  </script>
+</body>
+</html>

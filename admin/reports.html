@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Reports — SCOTS Admin</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260825-9">
+</head>
+<body data-root="../">
+  <div id="navbar"></div>
+  <div id="ops-nav"></div>
+
+  <main class="container">
+    <div class="page-head flex-between">
+      <div>
+        <span class="eyebrow">Canteen Admin Console</span>
+        <h1>Sales reports</h1>
+        <p>Revenue, popular items, payment and status breakdowns.</p>
+      </div>
+      <div class="chip-row">
+        <button class="chip active" id="range-today">Today's Report</button>
+        <button class="chip" id="range-week">Last 7 Days</button>
+      </div>
+    </div>
+
+    <div class="stat-grid" id="report-stats"></div>
+
+    <div class="chart-card mb-24">
+      <h3>Daily sales (last 7 days)</h3>
+      <canvas id="sales-chart" style="width:100%;height:220px" aria-label="Daily sales bar chart"></canvas>
+    </div>
+
+    <div class="chart-grid mb-24">
+      <div class="chart-card">
+        <h3>Most ordered items</h3>
+        <div id="popular-chart"></div>
+      </div>
+      <div class="chart-card">
+        <h3>Order status breakdown</h3>
+        <canvas id="status-chart" style="width:100%;height:160px" aria-label="Order status donut chart"></canvas>
+        <div class="legend"></div>
+      </div>
+    </div>
+
+    <div class="chart-card mb-24" style="max-width:520px">
+      <h3>Payment breakdown</h3>
+      <canvas id="payment-chart" style="width:100%;height:160px" aria-label="Payment method donut chart"></canvas>
+      <div class="legend"></div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/demo-data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/slots.js"></script>
+  <script src="../js/queue.js"></script>
+  <script src="../js/app.js?v=20260825-8"></script>
+  <script src="../js/notifications.js?v=20260825-2"></script>
+  <script src="../js/realtime.js?v=20260825-1"></script>
+  <script src="../js/admin.js"></script>
+  <script>initPage("reports");</script>
+  <script src="../js/reports.js"></script>
+</body>
+</html>

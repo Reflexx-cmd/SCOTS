@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help &amp; FAQ — SCOTS</title>
+  <link rel="icon" type="image/png" href="assets/icons/scots-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="css/responsive.css?v=20260825-9">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main class="container">
+    <div class="page-head page-head-row">
+      <div class="page-head-main">
+        <span class="eyebrow">Help Center</span>
+        <h1>Questions, answered</h1>
+        <p>Everything about ordering, payments, slots, tokens and the fair-play policy.</p>
+      </div>
+      <div class="page-queue-card" aria-live="polite" aria-label="Live kitchen queue wait time">
+        <span class="page-queue-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg></span>
+        <span class="page-queue-copy"><strong>Live Queue</strong><small>Kitchen wait time</small></span>
+        <strong class="page-queue-value" data-live-queue-wait>—</strong>
+      </div>
+    </div>
+
+    <div style="max-width:760px" class="mb-24" id="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">How does ordering work?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Log in, browse the menu, add items to your cart and choose Immediate (soonest pickup, shows a Checkout ETA you confirm) or Scheduled (a later 15-minute window, at least 30 minutes away). Pay by UPI, or Cash-at-Pickup for Immediate Orders. You get a token and a locked Token ETA. You can cancel before the order is Ready.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What are the payment rules?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">UPI works for every order. Cash-at-Pickup is for Immediate Orders only; Scheduled Orders are prepaid by UPI. Accounts with 2 No-Shows in 30 days are limited to UPI. An unpaid Pending Due blocks new orders until cleared.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do pickup slots work?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Windows are 15 minutes long, 9:00 AM to 6:00 PM. Each window has limited kitchen capacity (default 20 prep-minutes) and must start at least 30 minutes from now. A Scheduled Order stays hidden from the kitchen until its release time. If it starts late you get a revised ETA, and if the delay passes the grace period you can cancel for a 100% refund.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the live queue wait time?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">The live queue wait time is the estimated amount of kitchen prep time currently ahead in the active queue. SCOTS adds the prep time of every order that is still being received or prepared. It increases when a new order enters the kitchen queue and decreases when an order is completed or otherwise leaves the active queue. The same live value is shared across customers, canteen staff, admins and the token display.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the no-show policy?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">A Ready order waits 20 minutes. If not collected it expires and a No-Show is logged. Prepaid orders forfeit the configured share (default 100%). An unpaid Cash-at-Pickup order adds that amount to your Pending Due.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens on my 2nd no-show?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Two No-Shows within 30 days restrict you to UPI prepayment. The restriction lifts automatically once the count drops below two, or after Admin review.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens on my 3rd no-show?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Your account is temporarily suspended and you cannot place orders. To restore access, contact the canteen office or use the appeal form below — an admin can reinstate your account after a quick chat.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I get a refund if my order expires?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Default policy keeps 100% of a prepaid order that expires uncollected; the Admin can configure a lower share and the remainder is refunded. Orders cancelled by the canteen (sold-out item, closing time) or delayed past the grace period are refunded in full.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">An item shows Sold Out — when is it back?<span class="faq-chevron">▾</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sold-out items are restocked by the canteen staff, usually within the hour during service. The menu updates instantly for everyone the moment an item is restocked.</div></div>
+      </div>
+    </div>
+
+    <div style="max-width:760px" class="mb-24" id="appeal">
+      <div class="panel">
+        <h3>Appeal a restriction / Contact</h3>
+        <p class="text-muted mb-16" style="font-size:.92rem">Think a no-show was recorded unfairly, or want your UPI-only restriction removed? Send the canteen office a message — include your token number and what happened. Appeals go straight to the admin's Appeals inbox.</p>
+        <form id="appeal-form" novalidate>
+          <div class="field">
+            <label for="appeal-type">What is this about?</label>
+            <select id="appeal-type">
+              <option value="upi-restriction">Remove my UPI-only payment restriction</option>
+              <option value="suspension">Review my account suspension</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="appeal-msg">Your message</label>
+            <textarea id="appeal-msg" placeholder="e.g. Token #104 — I was held back in a lab session and reached at 12:50…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Appeal</button>
+        </form>
+        <p class="text-muted mt-16" style="font-size:.85rem">Or reach us directly: <a href="mailto:canteen@example.com" style="color:var(--orange-dark);font-weight:600">canteen@example.com</a> · +91 00000 00000 · Canteen office</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slots.js"></script>
+  <script src="js/queue.js"></script>
+  <script src="js/app.js?v=20260825-8"></script>
+  <script src="js/notifications.js?v=20260825-4"></script>
+  <script src="js/realtime.js?v=20260825-4"></script>
+  <script>
+    initPage("help");
+
+    document.querySelectorAll(".faq-item").forEach(item => {
+      const q = item.querySelector(".faq-q");
+      const a = item.querySelector(".faq-a");
+      q.setAttribute("aria-expanded", "false");
+      q.addEventListener("click", () => {
+        const open = item.classList.toggle("open");
+        q.setAttribute("aria-expanded", String(open));
+        a.style.maxHeight = open ? a.scrollHeight + "px" : "0px";
+      });
+    });
+
+    document.getElementById("appeal-form").addEventListener("submit", e => {
+      e.preventDefault();
+      const msg = document.getElementById("appeal-msg").value.trim();
+      if (msg.length < 10) { toast("Please write a short message first.", "warn"); return; }
+      const u = DB.getCurrentUser();
+      const type = document.getElementById("appeal-type").value;
+      const appeal = {
+        id: "ap-" + Date.now(),
+        userId: u ? u.id : null,
+        userName: u ? u.name : "Guest",
+        email: u ? u.email : "",
+        type,
+        message: msg,
+        status: "pending",
+        at: TimeUtil.now().toISOString(),
+      };
+      DB.addAppeal(appeal);
+      DB.addAudit({ type: "appeal", message: `Appeal from ${u ? u.name : "guest"} (${type}): ${msg.slice(0, 80)}` });
+      document.getElementById("appeal-msg").value = "";
+      toast("Appeal sent — the admin will see it in the Appeals inbox.", "success");
+    });
+  </script>
+</body>
+</html>

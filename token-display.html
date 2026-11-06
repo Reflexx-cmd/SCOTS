@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token Display — SCOTS</title>
+  <link rel="icon" type="image/png" href="assets/icons/scots-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="css/responsive.css?v=20260825-9">
+</head>
+<body class="tv">
+  <header class="tv-head">
+    <a class="brand" href="index.html" style="color:#F5EBD8">
+      <span class="brand-mark"><img src="assets/icons/scots-logo.png" alt="SCOTS logo"></span>
+      <span class="brand-name">SCOTS<small style="color:#8B7F70">Token Display</small></span>
+    </a>
+    <div style="display:flex;gap:26px;align-items:center;flex-wrap:wrap">
+      <span class="tv-queue-wait"><strong>Live Queue</strong> <span id="tv-queue-wait">0 min</span></span>
+      <span class="tv-status" id="tv-status"></span>
+      <span class="tv-clock" id="tv-clock">--:--</span>
+    </div>
+  </header>
+
+  <main class="tv-grid">
+    <section class="tv-panel" aria-labelledby="serving-h">
+      <h2 id="serving-h"><span class="live-dot"></span>Now Serving</h2>
+      <div class="tv-tokens" id="tv-serving"></div>
+    </section>
+    <section class="tv-panel" aria-labelledby="prep-h">
+      <h2 id="prep-h">Next 5 in queue</h2>
+      <div class="tv-tokens" id="tv-preparing"></div>
+    </section>
+  </main>
+
+  <footer class="tv-foot">
+    <span>SCOTS · Smart Canteen Ordering &amp; Token System</span>
+    <span id="tv-count"></span>
+    <span id="tv-updated"></span>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slots.js"></script>
+  <script src="js/queue.js"></script>
+  <script src="js/app.js?v=20260825-8"></script>
+  <script src="js/notifications.js?v=20260825-4"></script>
+  <script src="js/realtime.js?v=20260825-4"></script>
+  <script src="js/token-display.js"></script>
+</body>
+</html>

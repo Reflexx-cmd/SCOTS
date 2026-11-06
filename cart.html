@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — SCOTS</title>
+  <link rel="icon" type="image/png" href="assets/icons/scots-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="css/responsive.css?v=20260825-9">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main class="container">
+    <div class="page-head page-head-row">
+      <div class="page-head-main">
+        <span class="eyebrow">Almost There</span>
+        <h1>Your cart</h1>
+      </div>
+      <div class="page-queue-card" aria-live="polite" aria-label="Live kitchen queue wait time">
+        <span class="page-queue-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg></span>
+        <span class="page-queue-copy"><strong>Live Queue</strong><small>Kitchen wait time</small></span>
+        <strong class="page-queue-value" data-live-queue-wait>—</strong>
+      </div>
+    </div>
+
+    <div class="cart-layout mb-24">
+      <div id="cart-items" style="display:grid;gap:14px"></div>
+
+      <aside class="summary-card" id="cart-summary">
+        <h3>Order summary</h3>
+        <div class="sum-row"><span>Subtotal</span><span id="cp-subtotal">₹0</span></div>
+        <div class="sum-row"><span>Service fee</span><span id="cp-fee">₹0</span></div>
+        <div class="sum-row"><span>Preparation</span><span id="cp-prep" class="text-muted">—</span></div>
+        <div class="sum-row"><span>Pickup</span><span id="cp-slot" class="text-muted">—</span></div>
+        <div class="sum-row total"><span>Total</span><span id="cp-total">₹0</span></div>
+        <button class="btn btn-primary btn-block mt-16" id="proceed-btn">Proceed to Checkout</button>
+        <a class="btn btn-ghost btn-block mt-16" href="menu.html">Add more items</a>
+      </aside>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slots.js"></script>
+  <script src="js/queue.js"></script>
+  <script src="js/app.js?v=20260825-8"></script>
+  <script src="js/notifications.js?v=20260825-2"></script>
+  <script src="js/realtime.js?v=20260825-1"></script>
+  <script>initPage("cart");</script>
+</body>
+</html>

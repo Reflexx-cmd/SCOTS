@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy settings — SCOTS</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260825-9">
+</head>
+<body data-root="../">
+  <div id="navbar"></div>
+  <div id="ops-nav"></div>
+  <main class="container">
+    <div class="page-head"><span class="eyebrow">Canteen Admin Console</span><h1>Policy settings</h1><p>Values from SRS Appendix B.5. Changes apply to new orders only; accepted orders keep their snapshot. Every change is audit-logged.</p></div>
+    <div class="panel" style="padding:18px" id="policy-form"></div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/demo-data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/slots.js"></script>
+  <script src="../js/queue.js"></script>
+  <script src="../js/app.js?v=20260825-8"></script>
+  <script src="../js/notifications.js?v=20260825-2"></script>
+  <script src="../js/realtime.js?v=20260825-1"></script>
+  <script src="../js/admin.js"></script>
+  <script src="../js/admin-policy.js"></script>
+  <script>initPage("policy"); AdminPolicy.initPolicy();</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "scots-hosting-ready",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SCOTS Smart Canteen Ordering & Token System - unified frontend, realtime backend and Web Push",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": { "web-push": "^3.6.7" }
+}

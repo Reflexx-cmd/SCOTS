@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In — SCOTS</title>
+  <link rel="icon" type="image/png" href="assets/icons/scots-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="css/responsive.css?v=20260825-9">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main class="auth-wrap">
+    <img class="auth-bg-blob b1" src="assets/decorations/blob-soft.svg" alt="" aria-hidden="true">
+    <img class="auth-bg-blob b2" src="assets/decorations/blob.svg" alt="" aria-hidden="true">
+
+    <div class="auth-card">
+      <span class="eyebrow">Welcome Back</span>
+      <h1 style="margin-top:10px">Log in to SCOTS</h1>
+      <p class="sub">Use your college email or enrollment number.</p>
+
+      <form id="login-form" novalidate>
+        <div class="field" id="f-id">
+          <label for="login-id">Email / Enrollment Number</label>
+          <input id="login-id" type="text" autocomplete="username" placeholder="customer@example.com" required>
+          <span class="error-text">Please enter your email or enrollment number.</span>
+        </div>
+        <div class="field" id="f-pass">
+          <label for="login-pass">Password</label>
+          <div class="password-wrap">
+            <input id="login-pass" type="password" autocomplete="current-password" placeholder="••••••••" required>
+            <button type="button" class="password-toggle" data-password-toggle aria-label="Show password" title="Show password"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.7-6 9.5-6 9.5 6 9.5 6-3.7 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="2.7"></circle></svg></button>
+          </div>
+          <span class="error-text">Please enter your password.</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+      </form>
+
+      <p class="auth-alt">New to SCOTS? <a href="register.html">Create an account</a></p>
+
+      <div class="demo-quick">
+        <p>Demo quick access</p>
+        <div class="row">
+          <button class="btn btn-soft btn-sm" data-demo="student">Customer Demo</button>
+          <button class="btn btn-soft btn-sm" data-demo="staff">Canteen Staff Demo</button>
+          <button class="btn btn-soft btn-sm" data-demo="admin">Admin Demo</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slots.js"></script>
+  <script src="js/queue.js"></script>
+  <script src="js/app.js?v=20260825-8"></script>
+  <script src="js/notifications.js?v=20260825-2"></script>
+  <script src="js/realtime.js?v=20260825-1"></script>
+  <script>
+    initPage("login");
+
+    document.getElementById("login-form").addEventListener("submit", e => {
+      e.preventDefault();
+      const id = document.getElementById("login-id").value;
+      const pass = document.getElementById("login-pass").value;
+      document.getElementById("f-id").classList.toggle("invalid", !id.trim());
+      document.getElementById("f-pass").classList.toggle("invalid", !pass);
+      if (!id.trim() || !pass) return;
+      const res = Auth.login(id, pass);
+      if (!res.ok) { toast(res.error, "error"); return; }
+      toast("Welcome back, " + res.user.name.split(" ")[0], "success");
+      setTimeout(() => location.href = Auth.homeFor(res.user.role), 500);
+    });
+
+    document.querySelectorAll("[data-demo]").forEach(btn =>
+      btn.addEventListener("click", () => {
+        const res = Auth.quickLogin(btn.dataset.demo);
+        if (!res.ok) { toast(res.error, "error"); return; }
+        toast("Signed in as " + res.user.name, "success");
+        setTimeout(() => location.href = Auth.homeFor(res.user.role), 500);
+      }));
+  </script>
+</body>
+</html>

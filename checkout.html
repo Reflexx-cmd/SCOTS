@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — SCOTS</title>
+  <link rel="icon" type="image/png" href="assets/icons/scots-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="css/responsive.css?v=20260825-9">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main class="container">
+    <div class="page-head page-head-row">
+      <div class="page-head-main">
+        <span class="eyebrow">Checkout</span>
+        <h1>Review &amp; place your order</h1>
+        <div class="progress-steps" aria-label="Checkout progress">
+          <span class="ps done">1 · Cart</span>
+          <span class="ps now">2 · Payment</span>
+          <span class="ps now">3 · Pickup</span>
+          <span class="ps">4 · Confirm</span>
+        </div>
+      </div>
+      <div class="page-queue-card" aria-live="polite" aria-label="Live kitchen queue wait time">
+        <span class="page-queue-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg></span>
+        <span class="page-queue-copy"><strong>Live Queue</strong><small>Kitchen wait time</small></span>
+        <strong class="page-queue-value" data-live-queue-wait>—</strong>
+      </div>
+    </div>
+
+    <div id="checkout-blocks"></div>
+
+    <div class="checkout-grid mb-24">
+      <div>
+        <section class="panel" aria-labelledby="pay-head">
+          <h3 id="pay-head"><span class="pnum">1</span> Payment method</h3>
+          <div id="payment-options"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="slot-head">
+          <h3 id="slot-head"><span class="pnum">2</span> Pickup option</h3>
+          <div id="pickup-mode"></div>
+          <div id="slot-section">
+            <div class="slot-grid" id="slot-grid"></div>
+            <div id="slot-suggestion"></div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="summary-card" aria-label="Order summary">
+        <h3>Your order</h3>
+        <div id="eta-preview" class="eta-preview" aria-live="polite"></div>
+        <div id="buynow-qty"></div>
+        <div id="summary-lines"></div>
+        <div class="sum-row"><span>Subtotal</span><span id="summary-subtotal">₹0</span></div>
+        <div class="sum-row"><span>Service fee</span><span id="summary-fee">₹0</span></div>
+        <div class="sum-row"><span>Preparation</span><span id="summary-prep" class="text-muted">—</span></div>
+        <div class="sum-row total"><span>Total</span><span id="summary-total">₹0</span></div>
+        <button class="btn btn-primary btn-block mt-16" id="place-order-btn">Place Order</button>
+        <p class="text-muted mt-16" style="font-size:.78rem;text-align:center">The pickup time above is exactly what you'll get — it's locked the moment you place the order.</p>
+      </aside>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slots.js"></script>
+  <script src="js/queue.js"></script>
+  <script src="js/app.js?v=20260825-8"></script>
+  <script src="js/notifications.js?v=20260825-2"></script>
+  <script src="js/realtime.js?v=20260825-1"></script>
+  <script>initPage("checkout");</script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

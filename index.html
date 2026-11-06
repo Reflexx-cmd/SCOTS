@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCOTS — Smart Canteen Ordering &amp; Token System</title>
+  <meta name="description" content="Order ahead from your college canteen, get a token, skip the queue.">
+  <link rel="icon" type="image/png" href="assets/icons/scots-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="css/responsive.css?v=20260825-9">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Campus Canteen · Now Online</span>
+        <h1>Skip the queue.<br>Collect with a <em>token</em>.</h1>
+        <p class="lead">SCOTS lets you order your canteen favourites ahead of time, pay by UPI or Cash-at-Pickup, and pick up soon or in a 15-minute window you choose — no more waiting in line between lectures.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="menu.html">Order Now</a>
+          <a class="btn btn-outline" href="#how">How It Works</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hm"><strong>15-min</strong><span>Pickup slots</span></div>
+          <div class="hm"><strong>Live</strong><span>Token tracking</span></div>
+          <div class="hm"><strong>09–18</strong><span>Hours IST</span></div>
+        </div>
+        <div class="live-queue-panel" style="margin-top:18px">
+          <div><span class="live-queue-dot"></span><strong>Live Queue</strong></div>
+          <strong data-live-queue-wait>—</strong>
+          <small data-live-queue-detail>Checking kitchen queue…</small>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <img class="hero-blob" src="assets/decorations/blob.svg" alt="">
+        <div class="hero-halftone"></div>
+        <img class="hero-photo" src="assets/food/hero-platter.jpg" alt="A platter of canteen snacks: dosa, samosa and sandwiches">
+        <img class="hero-deco leaf" src="assets/decorations/leaf.svg" alt="">
+        <img class="hero-deco spice" src="assets/decorations/spice.svg" alt="">
+        <div class="hero-chip token"><span class="dot"></span><div>Token #104<small>Ready for pickup</small></div></div>
+        <div class="hero-chip eta"><div>⏱ 12:45 PM<small>Locked ETA</small></div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Popular items -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Customer Favourites</span>
+        <h2>Popular right now</h2>
+        <p>The most ordered items on campus this week, fresh from the canteen kitchen.</p>
+      </div>
+      <div class="food-grid" id="home-popular"></div>
+      <div class="text-center mt-32 reveal">
+        <a class="btn btn-outline" href="menu.html">See the full menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section-cream" id="how">
+    <img class="deco-blob-corner" style="top:-120px;right:-100px" src="assets/decorations/blob-soft.svg" alt="" aria-hidden="true">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">The Flow</span>
+        <h2>How SCOTS works</h2>
+        <p>Four steps between you and a hot meal — designed for a 20-minute lecture break.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-num">1</div>
+          <h3>Order ahead</h3>
+          <p>Browse the live menu, add items to your cart or hit Buy Now, and pay by UPI (Cash-at-Pickup for Immediate Orders).</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">2</div>
+          <h3>Queue or schedule</h3>
+          <p>Place an Immediate Order for the earliest ETA, or reserve a 15-minute pickup window for later today.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">3</div>
+          <h3>Get your token</h3>
+          <p>A token number with a locked ETA is generated instantly — it never shifts once your order is placed.</p>
+        </div>
+      </div>
+      <div class="mt-24 reveal">
+        <div class="step-card" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+          <div class="step-num" style="margin:0">4</div>
+          <div style="flex:1;min-width:220px">
+            <h3>Collect &amp; go</h3>
+            <p>Watch the canteen token display, walk up when your number is called, and collect. That's it.</p>
+          </div>
+          <a class="btn btn-primary" href="token-display.html">View Token Display</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SCOTS -->
+  <section class="section section-white">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">Why SCOTS</span>
+        <h2>Built for the campus rush hour</h2>
+        <p>The 12:30 lunch rush used to mean a 25-minute queue. SCOTS spreads demand across the day with scheduled slots and a live kitchen queue.</p>
+        <ul class="tick-list">
+          <li>Locked ETAs — the time you're promised never changes after ordering</li>
+          <li>Slot capacity keeps the kitchen realistic, not overloaded</li>
+          <li>Fair-play no-show policy keeps tokens honest for everyone</li>
+          <li>Sold-out items update everywhere in real time</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="hero-visual" style="min-height:340px">
+          <img class="hero-blob" src="assets/decorations/blob-soft.svg" alt="" aria-hidden="true">
+          <img class="hero-photo" style="width:min(340px,80%)" src="assets/food/masala-dosa.jpg" alt="Masala dosa with chutney and sambar">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slots + token explanation -->
+  <section class="section">
+    <div class="container grid-2">
+      <div class="step-card reveal">
+        <span class="eyebrow">Pickup Slots</span>
+        <h3 style="margin:10px 0 8px">15-minute windows, 09:00 – 18:00</h3>
+        <p>Every slot carries a prep-minute capacity (by default 20 minutes of kitchen time). As orders reserve capacity, the slot meter fills — when it's full, SCOTS automatically suggests the nearest open slot.</p>
+        <div class="mt-16">
+          <span class="pill green">09:00 – 09:15 · Open</span>
+          <span class="pill orange">12:30 – 12:45 · Filling</span>
+          <span class="pill red">13:00 – 13:15 · Full</span>
+        </div>
+      </div>
+      <div class="step-card reveal">
+        <span class="eyebrow">Token System</span>
+        <h3 style="margin:10px 0 8px">One token, zero confusion</h3>
+        <p>Your token (like SCOTS-104) follows the order from Received → Preparing → Ready → Collected. The public display board calls out ready tokens, and your Orders page shows the live status with a collect-by countdown.</p>
+        <div class="mt-16">
+          <span class="status-pill status-received">Received</span>
+          <span class="status-pill status-preparing">Preparing</span>
+          <span class="status-pill status-ready">Ready</span>
+          <span class="status-pill status-collected">Collected</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="section section-cream">
+    <div class="container text-center reveal">
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem)">Hungry between lectures?</h2>
+      <p class="text-muted mt-16" style="max-width:46ch;margin-inline:auto">Order in under a minute and pick up on your way to class.</p>
+      <div class="mt-24">
+        <a class="btn btn-primary" href="menu.html">Order Now</a>
+        <a class="btn btn-ghost" href="help.html">Read the FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slots.js"></script>
+  <script src="js/queue.js"></script>
+  <script src="js/app.js?v=20260825-8"></script>
+  <script src="js/notifications.js?v=20260825-2"></script>
+  <script src="js/realtime.js?v=20260825-1"></script>
+  <script>
+    initPage("home");
+    (function () {
+      const rail = document.getElementById("home-popular");
+      const popular = DB.getMenu().filter(m => m.popular).slice(0, 4);
+      const render = () => {
+        rail.innerHTML = popular.map(i => foodCardHTML(i, Cart.qtyOf(i.id), !Cart.hasItems())).join("");
+      };
+      render();
+      wireFoodCards(rail, render);
+    })();
+  </script>
+</body>
+</html>

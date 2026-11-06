@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — SCOTS</title>
+  <link rel="icon" type="image/png" href="assets/icons/scots-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260825-9">
+  <link rel="stylesheet" href="css/responsive.css?v=20260825-9">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main class="auth-wrap">
+    <img class="auth-bg-blob b1" src="assets/decorations/blob-soft.svg" alt="" aria-hidden="true">
+    <img class="auth-bg-blob b2" src="assets/decorations/blob.svg" alt="" aria-hidden="true">
+
+    <div class="auth-card" style="width:min(520px,100%)">
+      <span class="eyebrow">Join SCOTS</span>
+      <h1 style="margin-top:10px">Create your account</h1>
+      <p class="sub">One account for ordering, tokens and order history.</p>
+
+      <form id="register-form" novalidate>
+        <div class="field" data-field="name">
+          <label for="r-name">Full Name</label>
+          <input id="r-name" type="text" autocomplete="name" placeholder="Your full name">
+          <span class="error-text">Please enter your full name.</span>
+        </div>
+        <div class="form-row">
+          <div class="field" data-field="enrollment">
+            <label for="r-enroll">Enrollment Number</label>
+            <input id="r-enroll" type="text" placeholder="Enrollment / College ID">
+            <span class="error-text">Please enter your enrollment number.</span>
+          </div>
+          <div class="field" data-field="phone">
+            <label for="r-phone">Phone</label>
+            <input id="r-phone" type="tel" autocomplete="tel" placeholder="Phone number">
+            <span class="error-text">Enter a valid 10-digit phone number.</span>
+          </div>
+        </div>
+        <div class="field" data-field="email">
+          <label for="r-email">College Email</label>
+          <input id="r-email" type="email" autocomplete="email" placeholder="you@example.com">
+          <span class="error-text">Enter a valid college email address.</span>
+        </div>
+        <div class="form-row">
+          <div class="field" data-field="password">
+            <label for="r-pass">Password</label>
+            <div class="password-wrap">
+              <input id="r-pass" type="password" autocomplete="new-password" placeholder="Min. 8 characters">
+              <button type="button" class="password-toggle" data-password-toggle aria-label="Show password" title="Show password"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.7-6 9.5-6 9.5 6 9.5 6-3.7 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="2.7"></circle></svg></button>
+            </div>
+            <span class="error-text">Password must be at least 8 characters.</span>
+          </div>
+          <div class="field" data-field="confirm">
+            <label for="r-confirm">Confirm Password</label>
+            <div class="password-wrap">
+              <input id="r-confirm" type="password" autocomplete="new-password" placeholder="Repeat password">
+              <button type="button" class="password-toggle" data-password-toggle aria-label="Show password" title="Show password"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.7-6 9.5-6 9.5 6 9.5 6-3.7 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="2.7"></circle></svg></button>
+            </div>
+            <span class="error-text">Passwords do not match.</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+
+      <p class="auth-alt">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slots.js"></script>
+  <script src="js/queue.js"></script>
+  <script src="js/app.js?v=20260825-8"></script>
+  <script src="js/notifications.js?v=20260825-2"></script>
+  <script src="js/realtime.js?v=20260825-1"></script>
+  <script>
+    initPage("register");
+
+    const val = {
+      name: v => v.trim().length >= 3,
+      enrollment: v => v.trim().length >= 4,
+      phone: v => /^[+]?[\d\s-]{10,14}$/.test(v.trim()),
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+      password: v => v.length >= 8,
+    };
+
+    document.getElementById("register-form").addEventListener("submit", e => {
+      e.preventDefault();
+      const data = {
+        name: document.getElementById("r-name").value,
+        enrollment: document.getElementById("r-enroll").value,
+        phone: document.getElementById("r-phone").value,
+        email: document.getElementById("r-email").value,
+        password: document.getElementById("r-pass").value,
+      };
+      const confirm = document.getElementById("r-confirm").value;
+      let ok = true;
+      Object.keys(val).forEach(k => {
+        const valid = val[k](data[k]);
+        document.querySelector(`[data-field="${k}"]`).classList.toggle("invalid", !valid);
+        if (!valid) ok = false;
+      });
+      const match = data.password === confirm;
+      document.querySelector('[data-field="confirm"]').classList.toggle("invalid", !match);
+      if (!ok || !match) { toast("Please fix the highlighted fields.", "error"); return; }
+
+      const res = Auth.register(data);
+      if (!res.ok) { toast(res.error, "error"); return; }
+      toast("Account created — please log in", "success");
+      setTimeout(() => location.href = "login.html", 800);
+    });
+  </script>
+</body>
+</html>

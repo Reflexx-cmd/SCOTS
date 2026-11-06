@@ -1,0 +1,85 @@
+/* ============================================================
+   SCOTS — Responsive rules
+   Breakpoints: 1024 / 860 / 640 / 420
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .hero-inner { gap: 24px; padding: 44px 0 52px; }
+  .hero-photo { width: min(340px, 80%); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-inner > :first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .hamburger { display: inline-flex; }
+  .navbar-inner { gap: 12px; }
+  .nav-actions .btn-text-link { display: none; }
+
+  .hero-inner { grid-template-columns: 1fr; padding: 36px 0 48px; text-align: center; }
+  .hero-copy .eyebrow { justify-content: center; }
+  .hero-copy p.lead { margin-inline: auto; }
+  .hero-ctas, .hero-meta { justify-content: center; }
+  .hero-visual { order: 2; min-height: 320px; margin-top: 8px; }
+  .hero-photo { width: min(300px, 82%); border-width: 8px; }
+  .hero-chip.eta { bottom: 0; }
+
+  .section { padding: 54px 0; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; gap: 28px; }
+
+  .cart-layout, .checkout-grid { grid-template-columns: 1fr; }
+  .summary-card { position: static; }
+
+  .detail-grid, .grid-2, .chart-grid, .profile-grid { grid-template-columns: 1fr; }
+
+  .tv-grid { grid-template-columns: 1fr; padding: 24px 20px; }
+  .tv-head, .tv-foot { padding-inline: 20px; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .food-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .food-body { padding: 12px 14px 14px; }
+  .food-actions { flex-direction: column; }
+  .food-actions .btn { width: 100%; }
+
+  .order-card { grid-template-columns: auto 1fr; }
+  .order-card .oc-right { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; width: 100%; }
+}
+
+@media (max-width: 760px) {
+  .page-head-row { grid-template-columns: 1fr; align-items:stretch; }
+  .page-queue-card { min-width:0; width:100%; }
+}
+
+@media (max-width: 640px) {
+  .container { width: calc(100% - 36px); }
+  .hero-copy h1 { font-size: 2.15rem; }
+  .hero-meta { gap: 18px; }
+  .auth-card { padding: 28px 22px; }
+  .cart-item { grid-template-columns: 72px 1fr; }
+  .cart-item img { width: 72px; height: 72px; }
+  .cart-item .ci-right { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; }
+  .slot-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr; gap: 26px; padding: 42px 0 28px; }
+  .closed-banner { flex-direction: column; align-items: flex-start; }
+  .page-head { padding: 30px 0 22px; }
+}
+
+@media (max-width: 430px) {
+  .food-grid { grid-template-columns: 1fr; }
+  .brand small { display: none; }
+  .cart-link span.cart-label { display: none; }
+  .cart-link { padding: 9px 12px; }
+  .hero-chip { padding: 8px 12px; font-size: .76rem; }
+  .token-hero .tk-num { font-size: 2.4rem; }
+  .tv-token { font-size: 2rem; padding: 16px 22px; }
+  .demo-quick .row { flex-direction: column; }
+  .modal-card { padding: 22px 18px; }
+  .bar-row { grid-template-columns: 84px 1fr 50px; }
+}
+
+@media (max-width: 700px) {
+  .section-notification-badge { min-width:22px; height:22px; font-size:.66rem; }
+  .nav-links a > .section-notification-badge, .ops-nav a > .section-notification-badge { top:-5px; right:-6px; }
+}
